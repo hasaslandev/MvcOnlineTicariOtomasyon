@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>MARKA</th>
+        <th>ÜRÜN</th>
+        <th>STOK</th>
+        <th>ALIŞ FİYAT</th>
+        <th>SATIŞ FİYAT</th>
+        <th>KATEGORİ</th>
+        <th>GÖRSEL</th>
+        <th>SİL</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach(var u in Model)
+            {
+                <tr>
+                    <td>@u.ProductId</td>
+                    <td>@u.ProductName</td>
+                    <td>@u.Brand</td>
+                    <td>@u.Stock</td>
+                    <td>@u.PurchasePrice</td>
+                    <td>@u.SalePrice</td>
+                    <td>@u.category.CategoryName</td>
+                    <td>@u.ProductImage</td>
+                    <td>
+                        <a href="/Product/ProductDelete/@u.ProductId" class="btn btn-danger">SİL</a>
+                    </td>
+                    <td>
+                        <a href="/Product/ProductGet/@u.ProductId" class="btn btn-success">Güncelle</a>
+                    </td>
+
+                </tr>
+            }
+</table>
+<a href="/Product/NewProduct/" class="btn btn-info">yeni ürün</a>
+

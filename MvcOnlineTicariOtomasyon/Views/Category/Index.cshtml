@@ -1,0 +1,30 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th>ID</th>
+        <th>Kategori Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+    <tr>
+        <td>
+            @k.CategoryID
+        </td>
+        <td>
+            @k.CategoryName
+        </td>
+        <td><a href="/Category/CategoryRemove/@k.CategoryID" class="btn btn-danger">Sil</a></td>
+        <td><a href="/Category/CategoryBring/@k.CategoryID" class="btn btn-success">Güncelle</a></td>
+    </tr>
+    }
+</table>
+<a href="/Category/CategoryAdd" class="btn btn-primary">Kategori Ekle</a>
+

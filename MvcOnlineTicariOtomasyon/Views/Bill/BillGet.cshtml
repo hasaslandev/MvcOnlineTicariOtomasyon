@@ -1,0 +1,37 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Bill 
+@{
+    ViewBag.Title = "BillGet";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Fatura Güncelleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("BillUpdate", "Bill", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.BillId)
+    @Html.LabelFor(x => x.BillSerialNumber)
+    @Html.TextBoxFor(x => x.BillSerialNumber, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.BillRankNumber)
+    @Html.TextBoxFor(x => x.BillRankNumber, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TaxAdministration)
+    @Html.TextBoxFor(x => x.TaxAdministration, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Date)
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Hour)
+    @Html.TextBoxFor(x => x.Hour, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ReceiverPerson)
+    @Html.TextBoxFor(x => x.ReceiverPerson, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.DeliveryPerson)
+    @Html.TextBoxFor(x => x.DeliveryPerson, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}
+
