@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MvcOnlineTicariOtomasyon.Models.Classes;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
@@ -11,9 +13,9 @@ namespace MvcOnlineTicariOtomasyon.Controllers
     {
         // GET: Category
         Context c = new Context();
-        public ActionResult Index()
+        public ActionResult Index(int page=1)
         {
-            var degerler = c.categories.ToList();
+            var degerler = c.categories.ToList().ToPagedList(page,4);
             return View(degerler);
         }
         [HttpGet]
@@ -47,6 +49,26 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ktgr.CategoryName = k.CategoryName;
             c.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult Deneme()
+        {
+            Class3 cs = new Class3();
+            cs.Categories = new SelectList(c.categories, "CategoryID", "CategoryName");
+            cs.Products = new SelectList(c.products, "ProductId", "ProductName");
+            return View(cs);
+        }
+        public JsonResult ProductGet(int p)
+        {
+            var productlist = (from x in c.products
+                               join y in c.categories
+          on x.category.CategoryID equals y.CategoryID
+                               where x.category.CategoryID == p
+                               select new
+                               {
+                                   Text = x.ProductName,
+                                   Value = x.ProductId.ToString()
+                               }).ToList();
+            return Json(productlist,JsonRequestBehavior.AllowGet);
         }
 
     }

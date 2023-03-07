@@ -1,10 +1,10 @@
 ﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Employee
-@{
-    ViewBag.Title = "EmployeeAdd";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
-}
+@{ ViewBag.Title = "EmployeeAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
 <h2>Yeni Personel Sayfası</h2>
 <br />
+@using (Html.BeginForm("EmployeeAdd", "Employee", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
 <form class="form-group" method="post">
     @Html.LabelFor(x => x.EmployeeName)
     @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
@@ -13,7 +13,8 @@
     @Html.TextBoxFor(x => x.EmployeeLastName, new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.EmployeeImage)
-    @Html.TextBoxFor(x => x.EmployeeImage, new { @class = "form-control" })
+    @*@Html.TextBoxFor(x => x.EmployeeImage, new { @class = "form-control" })*@
+    <input type="file" name="EmployeeImage" />
     <br />
     @Html.LabelFor(x => x.department)
     @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.dgr1, new
@@ -21,6 +22,4 @@
     <br />
     <button class="btn btn-warning">Güncelle</button>
     <br />
-</form>
-
-
+</form>}

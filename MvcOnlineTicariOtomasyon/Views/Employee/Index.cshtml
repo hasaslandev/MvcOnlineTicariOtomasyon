@@ -21,7 +21,7 @@
             <td>@item.EmployeeId</td>
             <td>@item.EmployeeName</td>
             <td>@item.EmployeeLastName</td>
-            <td>@item.EmployeeImage</td>
+            <td><img src="@item.EmployeeImage" alt="@item.EmployeeImage" style="width:100px;height:100px;" /></td>
             <td>@item.department.DepartmentName</td>
             <td><a href="/Employee/EmployeeGet/@item.EmployeeId" class="btn btn-warning">Güncelle</a></td>
             <td><a href="/Department/DepartmentEmployeeSell/@item.EmployeeId" class="btn btn-default" style="background-color:lightcoral;color:white">Detaylar</a></td>

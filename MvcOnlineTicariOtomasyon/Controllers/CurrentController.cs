@@ -61,7 +61,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var crnt = context.currents.Where(x => x.CurrentId == Id).Select(y => y.CurrentName + " " + y.CurrentLastName).FirstOrDefault();
             ViewBag.current = crnt;
             return View(values);
-        }
+        } 
 
     }
 }

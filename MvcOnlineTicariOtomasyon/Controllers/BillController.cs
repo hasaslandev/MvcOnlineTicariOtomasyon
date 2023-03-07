@@ -63,5 +63,38 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             Context.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult Dynamic()
+        {
+            Class4 cs = new Class4();
+            cs.value1 = Context.bills.ToList();
+            cs.value2 = Context.billPencils.ToList();
+            return View(cs);
+        }
+        public ActionResult BillSave(string BillSerialNumber, string BillRankNumber,DateTime Date,string TaxAdministration,string Hour,
+            string DeliveryPerson,string ReceiverPerson,string Total,BillPencil[] pencils)
+        {
+            Bill f = new Bill();
+            f.BillSerialNumber = BillSerialNumber;
+            f.BillRankNumber = BillRankNumber;
+            f.Date = Date;
+            f.TaxAdministration = TaxAdministration;
+            f.Hour = Hour;
+            f.DeliveryPerson = DeliveryPerson;
+            f.ReceiverPerson = ReceiverPerson;
+            f.Total = decimal.Parse(Total);
+            Context.bills.Add(f);
+            foreach (var x in pencils)
+            {
+                BillPencil fk = new BillPencil();
+                fk.Statement = x.Statement;
+                fk.UnitPrice = x.UnitPrice;
+                fk.BillId = x.BillPencilId;
+                fk.Amount = x.Amount;
+                fk.Quantity = x.Quantity;
+                Context.billPencils.Add(fk);
+            }
+            Context.SaveChanges();
+            return Json("İşlem Başarılı", JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -69,34 +69,25 @@
                             Personeller
                         </a>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-lock"></i></div>
-                            Admin
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-pie"></i></div>
+                            Grafikler
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                    Yetkilendirme
+                                    Grafik Türleri
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
                                 <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="login.html">Giriş</a>
-                                        <a class="nav-link" href="register.html">Kayıt Ol</a>
-                                        <a class="nav-link" href="password.html">Şifreyi Unuttum</a>
+                                        <a class="nav-link" href="/Graphic/Index5/">Parça Grafik</a>
+                                        <a class="nav-link" href="/Graphic/Index6/">Çizgi Grafik</a>
+                                        <a class="nav-link" href="/Graphic/Index7/">Sütun Grafik</a>
                                     </nav>
                                 </div>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                    Hata Sayfaları
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="401.html">401 Page</a>
-                                        <a class="nav-link" href="404.html">404 Page</a>
-                                        <a class="nav-link" href="500.html">500 Page</a>
-                                    </nav>
-                                </div>
+
+
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading">Rapor & fatura</div>
@@ -108,26 +99,53 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-receipt"></i></div>
                             Faturalar
                         </a>
+                        <a class="nav-link" href="/Bill/Dynamic/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-procedures"></i></div>
+                            Dinamik Faturalar
+                        </a>
+                        <a class="nav-link" href="/Employee/EmployeeList/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-people-carry"></i></div>
+                            Personel Tablosu
+                        </a>
                         <a class="nav-link" href="tables.html">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Tables
                         </a>
                         <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-pencil"></i></div>
-                            Fatura Kalemler
-                        </a>
-                        <a class="nav-link" href="index.html">
                             <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
                             Giderler
+                        </a>
+                        <a class="nav-link" href="/Cargo/Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-pie"></i></div>
+                            Kargolar
                         </a>
                         <a class="nav-link" href="/Product/ProductList">
                             <div class="sb-nav-link-icon"><i class="fas fa-print"></i></div>
                             Pdf ~ Excel
                         </a>
-                        <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fa fa-chart-area"></i></div>
+                        <a class="nav-link" href="/Alerts/Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
+                            Alertler
+                        </a>
+                        <a class="nav-link" href="/Statistics/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             İstatistikler
                         </a>
+                        <a class="nav-link" href="/Gallery/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-camera-retro"></i></div>
+                            Galeri
+                        </a>
+                        <a class="nav-link" href="/ProductDetail/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>
+                            Ürün Detay
+                        </a>
+                        @if (User.IsInRole("A"))
+                        {
+                        <a class="nav-link" href="/Statistics/EasyTables/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-bar-chart-o"></i></div>
+                            Hızlı Bakış
+                        </a>
+                        }
 
                     </div>
                 </div>
@@ -159,6 +177,13 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="~/Web/js/scripts.js"></script>
+    <!-- jQuery library -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
 

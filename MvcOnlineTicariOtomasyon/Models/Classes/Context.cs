@@ -18,6 +18,11 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
         public DbSet<Expense> expenses { get; set; }
         public DbSet<Product> products { get; set; }
         public DbSet<SalesMovement> salesMovements { get; set; }
-        
+        public DbSet<Detail> details { get; set; }
+        public DbSet<ToDo> toDos { get; set; }
+        public DbSet<CargoDetail> cargoDetails { get; set; }
+        public DbSet<CargoTracking> cargoTrackings { get; set; }
+        public DbSet<Messages> messages { get; set; }
+
     }
 }
